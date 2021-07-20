@@ -44,5 +44,11 @@
     <Compile Include="OperacionesLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_BD\Capa_BD.csproj">
+      <Project>{387ede01-d333-4bda-80ef-3e1a129d4bad}</Project>
+      <Name>Capa_BD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
