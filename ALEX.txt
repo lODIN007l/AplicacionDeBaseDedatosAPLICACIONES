@@ -1,0 +1,6 @@
+Pantallas de la tabla cursos
+Ingreso
+Modificacion
+Eliminacion
+
+Nota: Falta hacer referncia al proyecto de la Capa_Logica

@@ -33,8 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Downloads\Compressed\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 2.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +52,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddCurso.Designer.cs">
+      <DependentUpon>FrmAddCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCursosDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCursosDocente.Designer.cs">
+      <DependentUpon>FrmCursosDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscElimCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscElimCurso.Designer.cs">
+      <DependentUpon>FrmBuscElimCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscModCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscModCurso.Designer.cs">
+      <DependentUpon>FrmBuscModCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarCurso.Designer.cs">
+      <DependentUpon>FrmEliminarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModificarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarCurso.Designer.cs">
+      <DependentUpon>FrmModificarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddCurso.resx">
+      <DependentUpon>FrmAddCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCursosDocente.resx">
+      <DependentUpon>FrmCursosDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscElimCurso.resx">
+      <DependentUpon>FrmBuscElimCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscModCurso.resx">
+      <DependentUpon>FrmBuscModCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarCurso.resx">
+      <DependentUpon>FrmEliminarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarCurso.resx">
+      <DependentUpon>FrmModificarCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,6 +116,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -69,6 +130,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_edit_property_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_bin_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\google_classroom_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exitL.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
