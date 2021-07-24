@@ -19,7 +19,7 @@ namespace Capa_BD
             try
             {
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand("SELECT * FROM usuarios", objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -39,7 +39,7 @@ namespace Capa_BD
             try
             {
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand("SELECT * FROM cursos", objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -53,13 +53,14 @@ namespace Capa_BD
             return tabla;
         }
 
-        public DataTable MostrarVideos(int cod_curso)
+        public DataTable MostrarVideos(int codigo)
         {
             DataTable tabla = new DataTable();
             try
             {
+                string cmd = "select cod_video,titulo,duracion from videos where cod_curso = "+codigo;
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -73,13 +74,14 @@ namespace Capa_BD
             return tabla;
         }
 
-        public DataTable MostrarComprados(int cod_curso)
+        public DataTable MostrarComprados(int codigo)
         {
             DataTable tabla = new DataTable();
             try
             {
+                string cmd = "Select nombre,fecha from compras inner join usuarios on usuarios.cod_usuario = compras.cod_usuario where compras.cod_usuario = " + codigo;
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -93,13 +95,14 @@ namespace Capa_BD
             return tabla;
         }
 
-        public DataTable BuscarUsuario(string nomb)
+        public DataTable BuscarUsuario(int cod)
         {
             DataTable tabla = new DataTable();
             try
             {
+                string cmd = "select * from usuarios where cod_usuarios=" + cod; 
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -111,7 +114,6 @@ namespace Capa_BD
                 tabla = null;
             }
             return tabla;
-
         }
 
         public DataTable BuscarCurso(int cod)
@@ -119,8 +121,9 @@ namespace Capa_BD
             DataTable tabla = new DataTable();
             try
             {
+                string cmd = "Select * from cursos where cod_curso=" + cod;
                 objConectar.Abrir();
-                SqlCommand comando = new SqlCommand("comando", objConectar.conectar);
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
                 SqlDataAdapter adaptador = new SqlDataAdapter();
                 adaptador.SelectCommand = comando;
                 adaptador.Fill(tabla);
@@ -137,33 +140,35 @@ namespace Capa_BD
         public void IngresarUsuario(string nombre, string correo, string password)
         {
             objConectar.Abrir();
-            string cmInsertar = "comando";
+            string cmInsertar = "insert into usuarios(nombre,correo,password) VALUES('" + nombre + "','" + correo + "','" + password + "')";
             SqlCommand comando = new SqlCommand(cmInsertar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void IngresarCurso(string titulo, string lenguaje, string descripcion, string precio)
+        public void IngresarCurso(string titulo, string lenguaje, string descripcion, float precio)
         {
+            //transformacion de string a float desde la capalogica
             objConectar.Abrir();
-            string cmInsertar = "comando";
+            string cmInsertar = "insert into cursos(titulo,lenguaje,descripcion,precio) VALUES('" + titulo + "','" + lenguaje + "','" + descripcion + "'," + precio + ")";
             SqlCommand comando = new SqlCommand(cmInsertar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void IngresarVideo(string titulo, string duracion)
+        public void IngresarVideo(int curso,string titulo, string duracion)
         {
             objConectar.Abrir();
-            string cmInsertar = "comando";
+            string cmInsertar = "insert into videos(cod_curso,nombre, correo, password) VALUES("+ curso +"'" + titulo + "'," + duracion +")";
             SqlCommand comando = new SqlCommand(cmInsertar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
-        public void CursoComprado(int cod_usu, int cod_video)
+        public void CursoComprado(int usuario, int curso)
         {
             objConectar.Abrir();
-            string cmInsertar = "comando";
+            string f = DateTime.Now.ToString("yyyy-mm-dd");
+            string cmInsertar = "insert into compras(cod_curso,cod_usuario,fecha) values('"+curso+"','"+usuario+"','"+f+"')";
             SqlCommand comando = new SqlCommand(cmInsertar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
@@ -172,7 +177,7 @@ namespace Capa_BD
         public void EliminarUsuario(int cod)
         {
             objConectar.Abrir();
-            string cmInsertar = "comando";
+            string cmInsertar = "delete from usuarios where cod_usuario ="+cod;
             SqlCommand comando = new SqlCommand(cmInsertar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
@@ -181,43 +186,43 @@ namespace Capa_BD
         public void EliminarCurso(int cod)
         {
             objConectar.Abrir();
-            string cmEliminar = "comando";
+            string cmEliminar = "delete from cursos where cod_curso="+cod;
             SqlCommand comando = new SqlCommand(cmEliminar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void EliminarVideo(int cod_curso, int cod_video)
+        public void EliminarVideo(int cod)
         {
             objConectar.Abrir();
-            string cmEliminar = "comando";
+            string cmEliminar = "delete from videos where cod_video="+cod;
             SqlCommand comando = new SqlCommand(cmEliminar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void EditarUsuario(int cod,string correo, string password) 
+        public void EditarUsuario(int cod,string nombre,string correo, string password) 
         {
             objConectar.Abrir();
-            string cmEditar = "comando";
+            string cmEditar = "UPDATE usuarios SET correo='" + correo + "',password= '" + password + "' where cod_usuario='" + cod + "'";
             SqlCommand comando = new SqlCommand(cmEditar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void EditarCurso(int codigo, string titulo, string lenguaje, string descripcion, string precio)
+        public void EditarCurso(int codigo, string titulo, string lenguaje, string descripcion, float precio)
         {
             objConectar.Abrir();
-            string cmEditar = "comando";
+            string cmEditar = "UPDATE cursos SET titulo='" + titulo + "',lenguaje= '" + lenguaje + "',descripcion='" + descripcion + "',precio='" + precio + "' where cod_curso=" + codigo;
             SqlCommand comando = new SqlCommand(cmEditar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();
         }
 
-        public void EditarVideo(int cod_curso,int cod_video, string titulo, string duracion)
+        public void EditarVideo(int cod_video, string titulo, string duracion)
         {
             objConectar.Abrir();
-            string cmEditar = "comando";
+            string cmEditar = "UPDATE videos SET titulo= '" + titulo + "',duracion='" + duracion + "' where cod_video=" + cod_video;
             SqlCommand comando = new SqlCommand(cmEditar, objConectar.conectar);
             comando.ExecuteNonQuery();
             objConectar.Cerrar();

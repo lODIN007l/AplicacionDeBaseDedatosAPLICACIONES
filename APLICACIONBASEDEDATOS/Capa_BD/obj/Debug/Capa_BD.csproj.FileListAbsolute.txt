@@ -1,0 +1,6 @@
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\bin\Debug\Capa_BD.dll
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\bin\Debug\Capa_BD.pdb
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\obj\Debug\Capa_BD.csproj.AssemblyReference.cache
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\obj\Debug\Capa_BD.csproj.CoreCompileInputs.cache
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\obj\Debug\Capa_BD.dll
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_BD\obj\Debug\Capa_BD.pdb
