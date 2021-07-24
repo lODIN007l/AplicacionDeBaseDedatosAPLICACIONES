@@ -1,0 +1,9 @@
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\bin\Debug\Capa_Logica.dll
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\bin\Debug\Capa_Logica.pdb
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\bin\Debug\Capa_BD.dll
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\bin\Debug\Capa_BD.pdb
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\obj\Debug\Capa_Logica.csproj.AssemblyReference.cache
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\obj\Debug\Capa_Logica.csproj.CoreCompileInputs.cache
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\obj\Debug\Capa_Logica.csproj.CopyComplete
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\obj\Debug\Capa_Logica.dll
+C:\Users\Marvin\Documents\Cursos_Online\AplicacionDeBaseDedatosAPLICACIONES\APLICACIONBASEDEDATOS\Capa_Logica\obj\Debug\Capa_Logica.pdb

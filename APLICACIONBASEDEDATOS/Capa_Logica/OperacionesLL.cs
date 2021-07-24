@@ -9,7 +9,7 @@ using Capa_BD;
 
 namespace Capa_Logica
 {
-    class OperacionesLL
+    public class OperacionesLL
     {
         private OperacionesBD objOperaciones = new OperacionesBD();
 
@@ -38,9 +38,9 @@ namespace Capa_Logica
             return tabla;
         }
 
-        public DataTable BuscarUsuario(string nomb)
+        public DataTable BuscarUsuario(int cod)
         {
-            DataTable tabla = objOperaciones.BuscarUsuario(nomb);
+            DataTable tabla = objOperaciones.BuscarUsuario(cod);
             return tabla;
 
         }
@@ -58,12 +58,12 @@ namespace Capa_Logica
 
         public void IngresarCurso(string titulo, string lenguaje, string descripcion, string precio)
         {
-            objOperaciones.IngresarCurso(titulo, lenguaje, descripcion, precio);
+            objOperaciones.IngresarCurso(titulo, lenguaje, descripcion, float.Parse(precio));
         }
 
-        public void IngresarVideo(string titulo, string duracion)
+        public void IngresarVideo(int curso,string titulo, string duracion)
         {
-            objOperaciones.IngresarVideo(titulo, duracion);
+            objOperaciones.IngresarVideo(curso,titulo, duracion);
         }
         public void CursoComprado(int cod_usu, int cod_video)
         {
@@ -80,24 +80,24 @@ namespace Capa_Logica
             objOperaciones.EliminarCurso(cod);
         }
 
-        public void EliminarVideo(int cod_curso, int cod_video)
+        public void EliminarVideo(int cod_video)
         {
-            objOperaciones.EliminarVideo(cod_curso, cod_video);
+            objOperaciones.EliminarVideo(cod_video);
         }
 
-        public void EditarUsuario(int cod,string correo, string password)
+        public void EditarUsuario(int cod,string nombre,string correo, string password)
         {
-            objOperaciones.EditarUsuario(cod,correo, password);
+            objOperaciones.EditarUsuario(cod,nombre,correo, password);
         }
 
         public void EditarCurso(int codigo, string titulo, string lenguaje, string descripcion, string precio)
         {
-            objOperaciones.EditarCurso(codigo, titulo, lenguaje, descripcion, precio);
+            objOperaciones.EditarCurso(codigo, titulo, lenguaje, descripcion, float.Parse(precio));
         }
 
-        public void EditarVideo(int cod_curso, int cod_video, string titulo, string duracion)
+        public void EditarVideo(int cod_video, string titulo, string duracion)
         {
-            objOperaciones.EditarVideo(cod_curso, cod_video, titulo, duracion);
+            objOperaciones.EditarVideo(cod_video, titulo, duracion);
         }
     }
 }
