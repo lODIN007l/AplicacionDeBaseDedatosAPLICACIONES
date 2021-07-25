@@ -137,6 +137,47 @@ namespace Capa_BD
             return tabla;
         }
 
+        public DataTable InicioSesion (string usu,string pass)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                string cmd = "Select * from usuarios where usu='"+usu+"' and pass='"+pass+"'" ;
+                objConectar.Abrir();
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(tabla);
+                return tabla;
+            }
+            catch (Exception exc)
+            {
+                objConectar.Cerrar();
+                tabla = null;
+            }
+            return tabla;
+        }
+
+        public DataTable VerificarCorreo(string mail)
+        {
+            DataTable tabla = new DataTable();
+            try
+            {
+                string cmd = "Select * from usuarios where correo='" + mail + "'";
+                objConectar.Abrir();
+                SqlCommand comando = new SqlCommand(cmd, objConectar.conectar);
+                SqlDataAdapter adaptador = new SqlDataAdapter();
+                adaptador.SelectCommand = comando;
+                adaptador.Fill(tabla);
+                return tabla;
+            }
+            catch (Exception exc)
+            {
+                objConectar.Cerrar();
+                tabla = null;
+            }
+            return tabla;
+        }
         public void IngresarUsuario(string nombre, string correo, string password)
         {
             objConectar.Abrir();

@@ -50,7 +50,17 @@ namespace Capa_Logica
             DataTable tabla = objOperaciones.MostrarVideos(cod);
             return tabla;
         }
-
+        
+        public DataTable InicioSesion(string usuario, string password) 
+        {
+            DataTable tabla = objOperaciones.InicioSesion(usuario, password);
+            return tabla;
+        }
+        public DataTable VerificarCorreo(string correo)
+        {
+            DataTable tabla = objOperaciones.VerificarCorreo(correo);
+            return tabla;
+        }
         public void IngresarUsuario(string nombre, string correo, string password)
         {
             objOperaciones.IngresarUsuario(nombre, correo, password);
